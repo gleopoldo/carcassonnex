@@ -10,12 +10,22 @@ services:
     container_name: carcassone-web
     volumes:
       - "$PWD:/app"
+    environment:
+      DB_USER: "postgres"
+      DB_PASSWORD: "mysecurepass"
+      DB_NAME: "carcassonex"
+      DB_HOST: "database"
     depends_on:
       - database
     ports:
       - "4000:4000"
 
   database:
+    container_name: database
     image: postgres:14
     volumes:
       - "/var/lib/postgres"
+    environment:
+      POSTGRES_PASSWORD: "mysecurepass"
+      POSTGRES_USER: "postgres"
+      POSTGRES_DB: "carcassonex"
