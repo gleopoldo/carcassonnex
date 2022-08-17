@@ -8,4 +8,5 @@ RUN adduser --uid "$uid" --gecos "" --disabled-password devito
 USER devito
 WORKDIR "$workspace"
 
-RUN mix local.hex --force
+RUN mix local.hex --force &&\
+    mix local.rebar --force
