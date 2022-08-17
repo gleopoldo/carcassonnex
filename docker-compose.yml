@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  web:
+    build:
+      args:
+        workspace: /app
+      context: .
+    image: carcassonex
+    container_name: carcassone-web
+    volumes:
+      - "$PWD:/app"
+    depends_on:
+      - database
+    ports:
+      - "4000:4000"
+
+  database:
+    image: postgres:14
+    volumes:
+      - "/var/lib/postgres"

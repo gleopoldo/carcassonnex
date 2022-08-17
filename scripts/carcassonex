@@ -1,0 +1,14 @@
+#!/bin/bash -e
+
+COMMAND_NAME=$1
+shift
+COMMAND_ARGS=$@
+
+case $COMMAND_NAME in
+  setup)
+    docker-compose build --build-arg uid="$EUID" web
+    ;;
+  run)
+    docker-compose run --rm web $COMMAND_ARGS
+    ;;
+esac
