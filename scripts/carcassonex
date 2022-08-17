@@ -16,4 +16,7 @@ case $COMMAND_NAME in
   test)
     $0 run mix test
     ;;
+  start)
+    docker-compose up
+    ;;
 esac

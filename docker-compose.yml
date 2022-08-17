@@ -19,6 +19,8 @@ services:
       - database
     ports:
       - "4000:4000"
+    command:
+      "mix phx.server"
 
   database:
     container_name: database
