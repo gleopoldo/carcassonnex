@@ -11,4 +11,7 @@ case $COMMAND_NAME in
   run)
     docker-compose run --rm web $COMMAND_ARGS
     ;;
+  test)
+    $0 run mix test
+    ;;
 esac
