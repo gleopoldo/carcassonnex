@@ -1,3 +1,27 @@
-<main>
-  <h1>Hello World</h1>
-</main>
+<style>
+  .grid {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .grid .row {
+      display: flex;
+      flex-direction: row;
+  }
+
+  .grid .tile {
+      width: 100px;
+      height: 100px;
+      border: 1px dashed black;
+  }
+</style>
+
+<section class="grid">
+  <%= for row <- @map do %>
+    <div class="row">
+      <%= for tile <- row do %>
+        <div class="tile"></div>
+      <% end %>
+    </div>
+  <% end %>
+</section>

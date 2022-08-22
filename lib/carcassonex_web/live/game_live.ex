@@ -5,7 +5,11 @@ defmodule CarcassonexWeb.GameLive do
     Phoenix.View.render(CarcassonexWeb.GameView, "index.html", assigns)
   end
 
-  def mount(_session, socket) do
-    {:ok, socket}
+  def mount(_session, _args, socket) do
+    new_grid = Enum.map((1..10), fn _ ->
+      Enum.map((1..10), fn _ -> nil end)
+    end)
+
+    {:ok, assign(socket, :map, new_grid) }
   end
 end
